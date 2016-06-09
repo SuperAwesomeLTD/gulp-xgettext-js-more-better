@@ -25,7 +25,7 @@
   },
   "main": "./index.js",
   "dependencies": {
-    "gettext-catalog": "0.0.2",
+    "gettext-catalog": "0.0.4",
     "gulp-util": "^3.0.4",
     "object-assign": "^4.0.1",
     "through2": "^0.6.5",
