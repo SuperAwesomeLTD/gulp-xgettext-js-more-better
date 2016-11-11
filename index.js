@@ -41,9 +41,15 @@ module.exports = function (catalogOptions, xgettextOptions, espreeOptions) {
       firstFile = file;
     }
 
-    var messages = xgettext(file.contents.toString(), assign({
-      filename: path.relative(file.cwd, file.path)
-    }, xgettextOptions), espreeOptions);
+    var options = {
+        filename: path.relative(file.cwd, file.path)
+    };
+
+    if (catalogOptions.identifiers) {
+        options.identifiers = catalogOptions.identifiers;
+    }
+
+    var messages = xgettext(file.contents.toString(), assign(options, xgettextOptions), espreeOptions);
     catalog.addMessages(messages.messages);
 
     return cb();
